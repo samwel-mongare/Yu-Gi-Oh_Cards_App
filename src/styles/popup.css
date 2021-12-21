@@ -61,10 +61,6 @@
   align-self: center;
 }
 
-.itemLeft {
-  align-self: flex-end;
-}
-
 @keyframes animatetop {
   from {
     top: -300px;
