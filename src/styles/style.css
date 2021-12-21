@@ -1,0 +1,30 @@
+body {
+  background-color: bisque;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 35vw;
+}
+
+li {
+  margin: 0.5em;
+  white-space: nowrap;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 3%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: red;
+}
