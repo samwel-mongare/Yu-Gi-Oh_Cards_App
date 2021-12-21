@@ -1,15 +1,25 @@
 body {
-  background-color: bisque;
+  background-image: url(../images/backy.jpg);
+}
+
+body,
+header,
+footer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 ul {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
-  width: 35vw;
 }
 
-li {
+nav {
+  margin-right: 5%;
+}
+
+.links {
   margin: 0.5em;
   white-space: nowrap;
 }
@@ -17,14 +27,174 @@ li {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 1% 3%;
+  position: fixed;
+  z-index: 20;
+  background-color: whitesmoke;
+  width: 100vw;
+  top: -2px;
+  padding-left: 2%;
+}
+
+footer {
+  position: fixed;
+  z-index: 20;
+  background-color: whitesmoke;
+  width: 100vw;
+  top: 92vh;
+  height: 8vh;
+  text-align: center;
+  padding-top: 1.5rem;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 a:hover {
   color: red;
+}
+
+main {
+  position: relative;
+  top: 95px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4rem;
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 0.5rem;
+  gap: 2rem;
+  margin-left: 12%;
+}
+
+h2 {
+  width: 7rem;
+  margin-left: 3%;
+  font-weight: 700;
+}
+
+main li {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  height: 20rem;
+  background-image: url('https://vignette.wikia.nocookie.net/yugioh/images/9/95/SlifertheSkyDragon-GBI-AE-Back.png/revision/latest/scale-to-width-down/328?cb=2010072608370');
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  color: white;
+  box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  align-content: center;
+  margin-bottom: 1rem;
+}
+
+main li:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.image_holder {
+  align-self: center;
+  width: 100%;
+  height: 80%;
+}
+
+.card_image {
+  width: 100%;
+  height: 100%;
+}
+
+.card_image:hover {
+  -webkit-transition: transform 1.5s;
+  -webkit-transform-style: preserve-3d;
+}
+
+.card_details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes-section {
+  width: 3rem;
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+.fa-heart {
+  padding-left: 0.5rem;
+}
+
+.card_comments {
+  text-decoration: none;
+  border: 3px solid yellow;
+  color: transparent;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+
+.card_comments::before {
+  content: "Comments";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotateY(0);
+  opacity: 0;
+}
+
+.card_comments:hover::before {
+  transform: scale(1) rotateY(360deg);
+  left: 0;
+  opacity: 1;
+}
+
+.card_comments::after {
+  content: "Comments";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotateY(0);
+  opacity: 1;
+}
+
+.card_comments:hover::after {
+  transform: scale(0) rotateY(360deg);
+  left: -100%;
+  opacity: 0;
+}
+
+header,
+footer {
+  background-image: url(../images/backy2.jpg);
+  left: -2px;
+  color: white;
 }
