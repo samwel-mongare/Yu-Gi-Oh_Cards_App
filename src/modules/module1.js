@@ -39,7 +39,7 @@ const displayElements = (() => {
         <div class="likes-section">
         <i class="far fa-heart"></i><br> 5 likes</div>
         </div>
-        <button class="card_comments" >Comments</button>
+        <button class="card_comments" data-id="${cards[i].id}" >Comments</button>
         </li>`;
   }
   save();
