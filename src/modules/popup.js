@@ -16,23 +16,17 @@ function textContentWith(ele, value) {
   return ele;
 }
 
-function showLoading() {
-  const loading = document.getElementById('ring');
-  loading.style.display = 'block';
-}
+// function showLoading() {
+//   const loading = document.getElementById('ring');
+//   loading.style.display = 'block';
+// }
 
-function disableLoading() {
-  const loading = document.getElementById('ring');
-  loading.style.display = 'none';
-}
-
-async function loadingCard(params) {
-  
-}
+// function disableLoading() {
+//   const loading = document.getElementById('ring');
+//   loading.style.display = 'none';
+// }
 
 export function displayPopup(cardId) {
-  showLoading()
-
   let card = getCard(cardId);
   const [popup, popupBody] = ['appPopup', 'popup-body'].map((id) => document.getElementById(id));
   const [cardImg, cardTitle, cardDesc, cardType, cardATK, cardDEF, cardAttr] = 
@@ -49,6 +43,6 @@ export function displayPopup(cardId) {
 
   cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
   popupBody.append(cardImg, cardTitle, cardDesc);
-
   displayBlock(popup);
+  return popup;
 }
