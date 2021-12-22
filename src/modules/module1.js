@@ -46,7 +46,6 @@ const displayElements = (() => {
 
 document.addEventListener('click', e => {
   const popup = document.getElementById('appPopup');
-  // const btn = document.getElementById('commentBtn');
 
   if (e.target === popup || e.target.id === 'close') popup.style.display = 'none';
   if (e.target.id === 'commentBtn') displayPopup(e.target.getAttribute('data-id'));

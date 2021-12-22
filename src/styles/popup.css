@@ -16,12 +16,13 @@
 }
 
 .popup-content {
+  overflow: auto;
   background-color: #fefefe;
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   border-radius: 10px;
-  width: 80%;
+  width: 700px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
@@ -37,7 +38,16 @@
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: 1fr auto auto auto;
+}
+
+#cardComments {
+  width: 100%;
+  text-align: center;
+}
+
+#commentsDisplay > * {
+  padding-bottom: 3px;
 }
 
 #close {
