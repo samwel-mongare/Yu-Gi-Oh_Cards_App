@@ -8,7 +8,7 @@ const clearElement = ((element) => {
   element.innerHTML = '';
 });
 
-const save = (() => {
+export const save = (() => {
   localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(cards));
 });
 
@@ -23,7 +23,6 @@ home.addEventListener('click', () => {
   }
   const result = getCards();
   return result;
-  
 });
 
 const displayElements = (() => {
