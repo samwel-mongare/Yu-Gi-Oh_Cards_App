@@ -1,10 +1,13 @@
 import { getCommentsOf, postCommentWith } from './interactionServer.js';
 
-const LOCAL_STORAGE_LIST_KEY = 'card.list';
-const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+
+function getCardsFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('card.list')) || [];
+}
 
 function getCard(id) {
   const numID = Number(id);
+  const cards = getCardsFromLocalStorage()
   return cards.find((card) => card.id === numID);
 }
 
