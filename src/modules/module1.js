@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import { displayPopup } from './popup.js';
+import displayPopup from './popup.js';
 
 const home = document.getElementById('home_link');
 
@@ -44,7 +44,7 @@ const displayElements = (() => {
   save();
 });
 
-document.addEventListener('click', e => {
+document.addEventListener('click', (e) => {
   const popup = document.getElementById('appPopup');
 
   if (e.target === popup || e.target.id === 'close') popup.style.display = 'none';
