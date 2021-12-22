@@ -46,6 +46,12 @@
   text-align: center;
 }
 
+.desc > * {
+  padding-bottom: 10px;
+  flex: 50%;
+  align-self: center;
+}
+
 #commentsDisplay > * {
   padding-bottom: 3px;
 }
@@ -67,12 +73,6 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
-
-.desc>* {
-  padding-bottom: 10px;
-  flex: 50%;
-  align-self: center;
 }
 
 @keyframes animatetop {
@@ -106,10 +106,10 @@
   letter-spacing: 4px;
   text-transform: uppercase;
   text-shadow: 0 0 10px #fff000;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-#ring:before {
+#ring::before {
   content: '';
   position: absolute;
   top: -3px;
@@ -135,7 +135,7 @@
   animation: animate 2s linear infinite;
 }
 
-#ring span:before {
+#ring span::before {
   content: '';
   position: absolute;
   width: 16px;
