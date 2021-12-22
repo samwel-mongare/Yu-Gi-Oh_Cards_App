@@ -9,4 +9,4 @@ document.addEventListener('click', e => {
 
     if (e.target === popup || e.target.id === 'close') popup.style.display = 'none';
     if (e.target === btn) displayPopup(card);
-})
+});
