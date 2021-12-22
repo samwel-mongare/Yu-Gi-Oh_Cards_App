@@ -2,7 +2,7 @@
 const home = document.getElementById('home_link');
 
 const LOCAL_STORAGE_LIST_KEY = 'card.list';
-const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+export const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
 const clearElement = ((element) => {
   element.innerHTML = '';
@@ -23,6 +23,7 @@ home.addEventListener('click', () => {
   }
   const result = getCards();
   return result;
+  
 });
 
 const displayElements = (() => {
