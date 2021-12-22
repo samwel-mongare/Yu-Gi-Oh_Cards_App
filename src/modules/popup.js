@@ -1,77 +1,67 @@
-const cardObj = {
-  id: 12321,
-  name: 'Tornado Dragon',
-  type: 'XYZ Monster',
-  desc: '2 Level 4 monsters\nOnce per turn (Quick Effect): You can detach 1 material from this card, then target 1 Spell/Trap on the field; destroy it.',
-  atk: 2100,
-  def: 2000,
-  attribute: 'WIND',
-  card_images: [
-    {
-      image_url: 'https://storage.googleapis.com/ygoprodeck.com/pics/6983839.jpg',
-      image_url_small: 'https://storage.googleapis.com/ygoprodeck.com/pics_small/6983839.jpg',
-    },
-  ],
-  card_prices: [
-    {
-      cardmarket_price: '0.42',
-      tcgplayer_price: '0.48',
-      ebay_price: '2.99',
-      amazon_price: '0.77',
-      coolstuffinc_price: '0.99',
-    },
-  ],
-};
+import { getCommentsOf } from './interactionServer.js';
 
-// will use this if the input is id <<<<<<<<<<<<<<<
+const LOCAL_STORAGE_LIST_KEY = 'card.list';
+const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
-// function getCard(id) {
-//     // get card data from app storge
-//     return arrayOfObjs.find(object => object.id === id; );
-// }
-
-function displayPopup(idOrCardObj) {
-  // let idOrCardObj = getCard(id);  i will use this if the input is id <<<<<<<<<<<<<<<<<
-  const [popup, xBtn, popupBody] = ['appPopup', 'close', 'popup-body'].map((id) => document.getElementById(id));
-  popup.style.display = 'block';
-
-  const cardImg = document.createElement('img');
-  const cardTitle = document.createElement('h2');
-  const cardDesc = document.createElement('div');
-  const cardType = document.createElement('span');
-  const cardATK = document.createElement('span');
-  const cardDEF = document.createElement('span');
-  const cardAttr = document.createElement('span');
-
-  cardDesc.className = 'desc';
-  cardATK.className = 'itemLeft';
-  cardDEF.className = 'itemLeft';
-
-  cardImg.src = idOrCardObj.card_images[0].image_url;
-  cardTitle.innerText = `${idOrCardObj.name}`;
-  cardType.innerText = `Type : ${idOrCardObj.type}`;
-  cardATK.innerText = `Attack : ${idOrCardObj.atk}`;
-  cardAttr.innerText = `Attribute : ${idOrCardObj.attribute}`;
-  cardDEF.innerText = `Defence : ${idOrCardObj.def}`;
-  cardDesc.innerText = '';
-  cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
-
-  popupBody.innerHTML = '';
-  popupBody.append(cardImg, cardTitle, cardDesc);
-
-  xBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-
-  window.addEventListener('click', (event) => {
-    if (event.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
+function getCard(id) {
+  const numID = Number(id);
+  return cards.find((card) => card.id === numID);
 }
 
-const btn = document.getElementById('myBtn');
-btn.addEventListener('click', (e) => {
-  displayPopup(cardObj);
-  e.preventDefault();
-});
+function displayBlock(element) {
+  element.style.display = 'block';
+  return true;
+}
+
+function textContentWith(ele, value) {
+  ele.textContent = value;
+  return ele;
+}
+
+export default function displayPopup(cardId) {
+  const card = getCard(cardId);
+  const [popup, popupBody] = ['appPopup', 'popup-body'].map((id) => document.getElementById(id));
+  const [cardImg, cardTitle, cardDesc, cardType, cardATK, cardDEF, cardAttr, cardComments] = ['img', 'h2', 'div', 'span', 'span', 'span', 'span', 'div'].map((tag) => document.createElement(tag));
+
+  cardComments.id = 'cardComments';
+  cardDesc.className = 'desc';
+  cardImg.src = card.card_images[0].image_url;
+  textContentWith(cardTitle, `${card.name}`);
+  textContentWith(cardType, `Type : ${card.type}`);
+  textContentWith(cardATK, `Attack : ${(card.type === 'Spell Card') ? '-' : card.atk}`);
+  textContentWith(cardAttr, `Attribute : ${(card.type === 'Spell Card') ? '-' : card.attribute}`);
+  textContentWith(cardDEF, `Defence : ${(card.type === 'Spell Card') ? '-' : card.def}`);
+  textContentWith(popupBody, '');
+
+  // >>>>>>>show comments section>>>>>>>>
+  const commentHead = document.createElement('h4');
+  const commentsDisplay = document.createElement('div');
+  commentsDisplay.id = 'commentsDisplay';
+
+  getCommentsOf(cardId).then((commentsArr) => {
+    commentHead.textContent = commentsArr.length === undefined ? 'No comments' : `Comments (${commentsArr.length})`;
+    commentsArr.forEach((comment) => {
+      commentsDisplay.innerHTML
+        += `<div>${comment.creation_date} ${comment.username} : ${comment.comment}</div>`;
+    });
+  });
+
+  cardComments.append(commentHead, commentsDisplay);
+  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+  cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
+  popupBody.append(cardImg, cardTitle, cardDesc, cardComments);
+  displayBlock(popup);
+  return popup;
+}
+
+// EXTRA FEATURE <<<<<<<<<<<<<<<<<<<<<<<<
+// function showLoading() {
+//   const loading = document.getElementById('ring');
+//   loading.style.display = 'block';
+// }
+
+// function disableLoading() {
+//   const loading = document.getElementById('ring');
+//   loading.style.display = 'none';
+// }
