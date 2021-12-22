@@ -56,7 +56,7 @@ export default function displayPopup(cardId) {
   const inputUsername = document.createElement('input');
   const inputComment = document.createElement('textarea');
   const commentBtn = document.createElement('input');
-  addComment.id = 'addComment'
+  addComment.id = 'addComment';
 
   addCommentHead.textContent = 'Add a comment';
   addCommentForm.id = 'commentForm';
@@ -74,12 +74,10 @@ export default function displayPopup(cardId) {
   commentBtn.type = 'submit';
   commentBtn.value = 'Post';
   commentBtn.id = 'commentBtn';
-  commentBtn
 
-  addCommentForm.append(inputUsername, inputComment, commentBtn)
-  addComment.append(addCommentHead, addCommentForm)
+  addCommentForm.append(inputUsername, inputComment, commentBtn);
+  addComment.append(addCommentHead, addCommentForm);
   // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 
   cardComments.append(commentHead, commentsDisplay);
   cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
@@ -88,26 +86,26 @@ export default function displayPopup(cardId) {
   return popup;
 }
 
-document.addEventListener('submit', e => {
+document.addEventListener('submit', (e) => {
   const commentHead = document.getElementById('commentHead');
   let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  let yyyy = today.getFullYear();
-  today = yyyy + '-' + mm + '-' + dd;
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  today = `${yyyy}-${mm}-${dd}`;
 
-  let username = e.target[0].value;
-  let comment = e.target[1].value;
-  let id = Number(e.target.getAttribute('data-id'));
-  let commentsDisplay = document.getElementById('commentsDisplay');
+  const username = e.target[0].value;
+  const comment = e.target[1].value;
+  const id = Number(e.target.getAttribute('data-id'));
+  const commentsDisplay = document.getElementById('commentsDisplay');
   postCommentWith(id, username, comment);
 
-  commentsDisplay.innerHTML += `<div>${today} (${username}) : ${comment}</div>`
-  commentHead.innerHTML = `Comments (${commentsDisplay.childElementCount})`
-  
+  commentsDisplay.innerHTML += `<div>${today} (${username}) : ${comment}</div>`;
+  commentHead.innerHTML = `Comments (${commentsDisplay.childElementCount})`;
+
   e.target.reset();
   e.preventDefault();
-})
+});
 
 // EXTRA FEATURE <<<<<<<<<<<<<<<<<<<<<<<<
 // function showLoading() {
