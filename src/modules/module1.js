@@ -1,4 +1,6 @@
 /* eslint-disable no-plusplus */
+import { displayPopup } from './popup.js';
+
 const home = document.getElementById('home_link');
 
 const LOCAL_STORAGE_LIST_KEY = 'card.list';
@@ -36,10 +38,18 @@ const displayElements = (() => {
         <div class="likes-section">
         <i class="far fa-heart"></i><br> 5 likes</div>
         </div>
-        <button class="card_comments" data-id="${cards[i].id}" >Comments</button>
+        <button id="commentBtn" class="card_comments" data-id="${cards[i].id}" >Comments</button>
         </li>`;
   }
   save();
+});
+
+document.addEventListener('click', e => {
+  const popup = document.getElementById('appPopup');
+  // const btn = document.getElementById('commentBtn');
+
+  if (e.target === popup || e.target.id === 'close') popup.style.display = 'none';
+  if (e.target.id === 'commentBtn') displayPopup(e.target.getAttribute('data-id'));
 });
 
 displayElements();
