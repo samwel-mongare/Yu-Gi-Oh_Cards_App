@@ -16,6 +16,7 @@ function textContentWith(ele, value) {
   return ele;
 }
 
+// EXTRA FEATURE <<<<<<<<<<<<<<<<<<<<<<<<
 // function showLoading() {
 //   const loading = document.getElementById('ring');
 //   loading.style.display = 'block';
