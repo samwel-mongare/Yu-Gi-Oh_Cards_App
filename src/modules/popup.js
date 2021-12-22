@@ -14,14 +14,14 @@ function displayBlock(element) {
 }
 
 function textContentWith(ele, value) {
-  ele.textContent = value;
+  ele.textContent += value;
   return ele;
 }
 
 export default function displayPopup(cardId) {
   const card = getCard(cardId);
   const [popup, popupBody] = ['appPopup', 'popup-body'].map((id) => document.getElementById(id));
-  const [cardImg, cardTitle, cardDesc, cardType, cardATK, cardDEF, cardAttr, cardComments] = ['img', 'h2', 'div', 'span', 'span', 'span', 'span', 'div'].map((tag) => document.createElement(tag));
+  const [cardImg, cardTitle, cardDesc, cardType, cardATK, cardDEF, cardAttr, cardInfo, cardComments] = ['img', 'h2', 'div', 'span', 'span', 'span', 'span', 'span', 'div'].map((tag) => document.createElement(tag));
 
   cardComments.id = 'cardComments';
   cardDesc.className = 'desc';
@@ -31,6 +31,7 @@ export default function displayPopup(cardId) {
   textContentWith(cardATK, `Attack : ${(card.type === 'Spell Card') ? '-' : card.atk}`);
   textContentWith(cardAttr, `Attribute : ${(card.type === 'Spell Card') ? '-' : card.attribute}`);
   textContentWith(cardDEF, `Defence : ${(card.type === 'Spell Card') ? '-' : card.def}`);
+  textContentWith(cardInfo, `Description : ${card.desc}`);
   textContentWith(popupBody, '');
 
   // >>>>>>>show comments section>>>>>>>>
@@ -45,12 +46,39 @@ export default function displayPopup(cardId) {
         += `<div>${comment.creation_date} ${comment.username} : ${comment.comment}</div>`;
     });
   });
-
-  cardComments.append(commentHead, commentsDisplay);
   // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+  // >>>>>>>>>>>>>>>add comment>>>>>>>>>>
+  const addComment = document.createElement('div');
+  const addCommentHead = document.createElement('h4');
+  const addCommentForm = document.createElement('form');
+  const inputUsername = document.createElement('input');
+  const inputComment = document.createElement('textarea');
+  const commentBtn = document.createElement('input');
+  addComment.id = 'addComment'
+
+  addCommentHead.textContent = 'Add a comment';
+  addCommentForm.id = 'commentForm';
+
+  inputUsername.type = 'text';
+  inputUsername.placeholder = 'Your name';
+  inputUsername.id = 'inputUsername';
+
+  inputComment.placeholder = 'Your comment';
+  inputComment.id = 'inputComment';
+
+  commentBtn.type = 'submit';
+  commentBtn.value = 'Post';
+  commentBtn.id = 'commentBtn';
+
+  addCommentForm.append(inputUsername, inputComment, commentBtn)
+  addComment.append(addCommentHead, addCommentForm)
+  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+  cardComments.append(commentHead, commentsDisplay);
   cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
-  popupBody.append(cardImg, cardTitle, cardDesc, cardComments);
+  popupBody.append(cardImg, cardTitle, cardDesc, cardInfo, cardComments, addComment);
   displayBlock(popup);
   return popup;
 }
