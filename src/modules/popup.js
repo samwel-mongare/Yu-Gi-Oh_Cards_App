@@ -1,4 +1,4 @@
-import { getCommentsOf } from './interactionServer.js';
+import { getCommentsOf, postCommentWith } from './interactionServer.js';
 
 const LOCAL_STORAGE_LIST_KEY = 'card.list';
 const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
@@ -14,7 +14,7 @@ function displayBlock(element) {
 }
 
 function textContentWith(ele, value) {
-  ele.textContent += value;
+  ele.textContent = value;
   return ele;
 }
 
@@ -59,17 +59,21 @@ export default function displayPopup(cardId) {
 
   addCommentHead.textContent = 'Add a comment';
   addCommentForm.id = 'commentForm';
+  addCommentForm.setAttribute('data-id', cardId);
 
   inputUsername.type = 'text';
   inputUsername.placeholder = 'Your name';
   inputUsername.id = 'inputUsername';
+  inputUsername.required = true;
 
   inputComment.placeholder = 'Your comment';
   inputComment.id = 'inputComment';
+  inputComment.required = true;
 
   commentBtn.type = 'submit';
   commentBtn.value = 'Post';
   commentBtn.id = 'commentBtn';
+  commentBtn
 
   addCommentForm.append(inputUsername, inputComment, commentBtn)
   addComment.append(addCommentHead, addCommentForm)
@@ -82,6 +86,15 @@ export default function displayPopup(cardId) {
   displayBlock(popup);
   return popup;
 }
+
+document.addEventListener('submit', e => {
+  let username = e.target[0].value;
+  let comment = e.target[1].value;
+  let id = Number(e.target.getAttribute('data-id'));
+  postCommentWith(id, username, comment)
+  
+  e.preventDefault();
+})
 
 // EXTRA FEATURE <<<<<<<<<<<<<<<<<<<<<<<<
 // function showLoading() {
