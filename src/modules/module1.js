@@ -5,9 +5,7 @@ const LOCAL_STORAGE_LIST_KEY = 'card.list';
 const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
 const clearElement = ((element) => {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
+  element.innerHTML = '';
 });
 
 const save = (() => {
@@ -31,8 +29,7 @@ const displayElements = (() => {
   const blueEyes = document.getElementById('card_list');
   clearElement(blueEyes);
   for (let i = 0; i < cards.length; i++) {
-    const blueEye = document.getElementById('card_list');
-    blueEye.innerHTML += `
+    blueEyes.innerHTML += `
         <li>
         <div class="image_holder"><img class="card_image" src="${cards[i].card_images[0].image_url_small}" alt=""></div>
         <div class="card_details"><h2 class"card_title">${cards[i].name}</h2>
