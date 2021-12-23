@@ -1,5 +1,5 @@
 const API_URI = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
-const APP_ID = 'pgN3PMVF4hByoHLn5kWW';
+const APP_ID = 'eVhYJo21vVPIv4GTCmdX';
 
 function getCommentsOptions() {
   return {
@@ -21,17 +21,17 @@ function postCommentsOptions(cardID, username, comment) {
   };
 }
 
-// function postLikes(cardID) {
-//   return {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       item_id: cardID,
-//     }),
-//     headers: {
-//       'Content-type': 'application/json',
-//     },
-//   };
-// }
+function postLikes(cardID) {
+  return {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: cardID,
+    }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+}
 
 export async function getCommentsOf(cardID) {
   const response = await fetch(`${API_URI}/apps/${APP_ID}/comments?item_id=${cardID}`, getCommentsOptions());
@@ -43,7 +43,8 @@ export async function postCommentWith(cardID, username, comment) {
   return response.json();
 }
 
-// export async function postLikesWith(cardID) {
-//   const response = await fetch(`${API_URI}/apps/${APP_ID}/likes`, postLikes(cardID));
-//   return response.json();
-// };
+export async function postLikesWith(cardID) {
+  console.log(typeof cardID)
+  const response = await fetch(`${API_URI}/apps/${APP_ID}/likes`, postLikes(cardID));
+  return response.json();
+};
