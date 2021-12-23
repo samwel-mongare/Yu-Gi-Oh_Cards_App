@@ -1,4 +1,4 @@
-import { cards, clearElement, save } from './module1.js';
+import { cards, clearElement } from './module1.js';
 import { postLikesWith } from './interactionServer.js';
 
 const likey = document.getElementById('card_list');
@@ -23,17 +23,19 @@ async function thisIsIt() {
 }
 thisIsIt();
 let clicked = false;
-likey.addEventListener('mousedown', (e) => {
+likey.addEventListener('click', (e) => {
   if (e.target.tagName.toLowerCase() === 'i') {
-    e.target.classList.add('open');
     const dataId = Number(e.target.getAttribute('data-id'));
     thisIsIt();
+    e.target.classList.add('open');
+
     if (!clicked) {
       clicked = true;
       postLikesWith(dataId);
+      thisIsIt();
     } else {
       clicked = false;
+      thisIsIt();
     }
   }
-  save();
 });

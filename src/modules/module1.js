@@ -12,17 +12,7 @@ export const save = (() => {
   localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(cards));
 });
 
-async function getCards() {
-  const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes');
-  const allcards = await response.json();
-  const cardData = allcards.data;
-  cards.length = 0;
-  cards.push(...cardData.slice(0, 12));
-  save();
-}
-getCards();
-
-const displayElements = (() => {
+const displayElements = () => {
   const blueEyes = document.getElementById('card_list');
   clearElement(blueEyes);
   for (let i = 0; i < cards.length; i++) {
@@ -37,7 +27,17 @@ const displayElements = (() => {
         </li>`;
   }
   save();
-});
+};
+
+async function getCards() {
+  const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes');
+  const allcards = await response.json();
+  const cardData = allcards.data;
+  cards.length = 0;
+  cards.push(...cardData.slice(0, 12));
+  save();
+  displayElements();
+}
 
 document.addEventListener('click', (e) => {
   const popup = document.getElementById('appPopup');
@@ -46,4 +46,4 @@ document.addEventListener('click', (e) => {
   if (e.target.id === 'commentBtn') displayPopup(e.target.getAttribute('data-id'));
 });
 
-displayElements();
+getCards();

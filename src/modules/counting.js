@@ -12,4 +12,6 @@ function arrayLength(a) {
   counting.innerHTML = `(${length})`;
 }
 
-arrayLength(cards);
+window.addEventListener('load', () => {
+  arrayLength(cards);
+});
