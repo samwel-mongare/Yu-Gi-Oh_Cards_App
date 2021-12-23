@@ -12,12 +12,12 @@ export function displayBlock(element) {
   return true;
 }
 
-function textContentWith(ele, value) {
+export function textContentWith(ele, value) {
   ele.textContent = value;
   return ele;
 }
 
-function getDate() {
+export function getDate() {
   let today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
@@ -94,14 +94,3 @@ document.addEventListener('submit', (e) => {
   e.target.reset();
   e.preventDefault();
 });
-
-// EXTRA FEATURE <<<<<<<<<<<<<<<<<<<<<<<<
-// function showLoading() {
-//   const loading = document.getElementById('ring');
-//   loading.style.display = 'block';
-// }
-
-// function disableLoading() {
-//   const loading = document.getElementById('ring');
-//   loading.style.display = 'none';
-// }
