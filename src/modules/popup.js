@@ -6,7 +6,7 @@ function getCardsFromLocalStorage() {
 }
 
 function getCard(id) {
-  const cards = getCardsFromLocalStorage()
+  const cards = getCardsFromLocalStorage();
   return cards.find((card) => card.id === id);
 }
 
@@ -26,15 +26,14 @@ function getDate() {
   const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
   const yyyy = today.getFullYear();
   today = `${yyyy}-${mm}-${dd}`;
-  return today
+  return today;
 }
 
 export default function displayPopup(cardId) {
   const card = getCard(Number(cardId));
   const [popup, popupBody] = ['appPopup', 'popup-body'].map((id) => document.getElementById(id));
   const [cardImg, cardTitle, cardDesc, cardType, cardATK, cardDEF, cardAttr, cardInfo, cardComments,
-    commentHead, commentsDisplay, addComment, addCommentHead, addCommentForm, inputUsername, inputComment, commentBtn] =
-    ['img', 'h2', 'div', 'span', 'span', 'span', 'span', 'span', 'div', 'h4', 'div', 'div', 'h4', 'form', 'input', 'textarea', 'input'].map((tag) => document.createElement(tag));
+    commentHead, commentsDisplay, addComment, addCommentHead, addCommentForm, inputUsername, inputComment, commentBtn] = ['img', 'h2', 'div', 'span', 'span', 'span', 'span', 'span', 'div', 'h4', 'div', 'div', 'h4', 'form', 'input', 'textarea', 'input'].map((tag) => document.createElement(tag));
 
   cardComments.id = 'cardComments';
   commentHead.id = 'commentHead';
@@ -85,7 +84,7 @@ export default function displayPopup(cardId) {
 }
 
 document.addEventListener('submit', (e) => {
-  const [commentHead, commentsDisplay] = ['commentHead', 'commentsDisplay'].map(id => document.getElementById(id));
+  const [commentHead, commentsDisplay] = ['commentHead', 'commentsDisplay'].map((id) => document.getElementById(id));
   const [username, comment] = [e.target[0].value, e.target[1].value];
   const id = Number(e.target.getAttribute('data-id'));
   const today = getDate();
