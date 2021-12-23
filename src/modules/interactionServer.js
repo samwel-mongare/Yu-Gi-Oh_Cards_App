@@ -44,7 +44,6 @@ export async function postCommentWith(cardID, username, comment) {
 }
 
 export async function postLikesWith(cardID) {
-  console.log(typeof cardID)
   const response = await fetch(`${API_URI}/apps/${APP_ID}/likes`, postLikes(cardID));
   return response.json();
-};
+}

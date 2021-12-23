@@ -1,8 +1,6 @@
 /* eslint-disable no-plusplus */
 import displayPopup from './popup.js';
 
-const home = document.getElementById('home_link');
-
 const LOCAL_STORAGE_LIST_KEY = 'card.list';
 export const cards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
@@ -14,15 +12,15 @@ export const save = (() => {
   localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(cards));
 });
 
-  async function getCards() {
-    const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes');
-    const allcards = await response.json();
-    const cardData = allcards.data;
-    cards.length = 0;
-    cards.push(...cardData.slice(0, 12));
-    save();
-  }
-  getCards();
+async function getCards() {
+  const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes');
+  const allcards = await response.json();
+  const cardData = allcards.data;
+  cards.length = 0;
+  cards.push(...cardData.slice(0, 12));
+  save();
+}
+getCards();
 
 const displayElements = (() => {
   const blueEyes = document.getElementById('card_list');

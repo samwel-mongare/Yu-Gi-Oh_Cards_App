@@ -15,26 +15,25 @@ async function thisIsIt() {
   likeNo.forEach((item) => {
     clearElement(likeNo);
     scoreLine.forEach((likeObj) => {
-
       if (likeObj.item_id === Number(item.id)) {
         item.innerHTML = `${likeObj.likes}`;
       }
     });
   });
 }
- thisIsIt()
+thisIsIt();
 let clicked = false;
 likey.addEventListener('mousedown', (e) => {
-    if (e.target.tagName.toLowerCase() === 'i') {
-      e.target.classList.add('open');
-      let dataId = Number(e.target.getAttribute('data-id'));
-      thisIsIt();
-        if (!clicked) {
-            clicked = true;
-            postLikesWith(dataId);
-        } else {
-            clicked =false;
-        }
-      }
-      save();
-      });
+  if (e.target.tagName.toLowerCase() === 'i') {
+    e.target.classList.add('open');
+    const dataId = Number(e.target.getAttribute('data-id'));
+    thisIsIt();
+    if (!clicked) {
+      clicked = true;
+      postLikesWith(dataId);
+    } else {
+      clicked = false;
+    }
+  }
+  save();
+});
