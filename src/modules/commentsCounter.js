@@ -4,9 +4,13 @@ function plusPlus(counter) {
 }
 
 export default function commentsCounter(comments) {
-  const counter = 0;
+  let counter = 0;
   if (comments.length === undefined) return undefined;
-  comments.forEach(() => plusPlus(counter));
+  comments.forEach(() => {
+    counter = plusPlus(counter);
+    return counter;
+  });
+
   if (counter === 0) return undefined;
   return counter;
 }
