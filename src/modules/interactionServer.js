@@ -21,18 +21,17 @@ function postCommentsOptions(cardID, username, comment) {
   };
 }
 
-
-function postLikes(cardID) {
-  return {
-    method: 'POST',
-    body: JSON.stringify({
-      item_id: cardID,
-    }),
-    headers: {
-      'Content-type': 'application/json',
-    },
-  };
-}
+// function postLikes(cardID) {
+//   return {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       item_id: cardID,
+//     }),
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//   };
+// }
 
 export async function getCommentsOf(cardID) {
   const response = await fetch(`${API_URI}/apps/${APP_ID}/comments?item_id=${cardID}`, getCommentsOptions());
