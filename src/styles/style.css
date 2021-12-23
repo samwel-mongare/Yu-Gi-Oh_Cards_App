@@ -20,7 +20,7 @@ nav {
 }
 
 .links {
-  margin: 0.5em;
+  margin: 0.5rem;
   white-space: nowrap;
 }
 
@@ -67,8 +67,8 @@ main ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   font-size: 0.5rem;
-  gap: 2rem;
-  margin-left: 12%;
+  gap: 1.5rem;
+  margin-left: 10%;
 }
 
 h2 {
@@ -107,11 +107,6 @@ main li:hover {
   height: 100%;
 }
 
-.card_image:hover {
-  -webkit-transition: transform 1.5s;
-  -webkit-transform-style: preserve-3d;
-}
-
 .card_details {
   display: flex;
   justify-content: space-between;
@@ -125,6 +120,13 @@ main li:hover {
 
 .fa-heart {
   padding-left: 0.5rem;
+  cursor: pointer;
+}
+
+.open {
+  animation: popup 0.6s linear;
+  color: red;
+  transform: scale(1.5);
 }
 
 .card_comments {
@@ -197,4 +199,18 @@ footer {
   background-image: url(../images/backy2.jpg);
   left: -2px;
   color: white;
+}
+
+.counter {
+  font-size: 0.8rem;
+  color: yellow;
+  font-weight: 1000;
+  margin-left: 0.2rem;
+}
+
+@keyframes popup {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }

@@ -82,6 +82,7 @@ export default function displayPopup(cardId) {
   cardComments.append(commentHead, commentsDisplay);
   cardDesc.append(cardType, cardATK, cardAttr, cardDEF);
   popupBody.append(cardImg, cardTitle, cardDesc, cardInfo, cardComments, addComment);
+
   displayBlock(popup);
   return popup;
 }
