@@ -1,3 +1,4 @@
+import commentsCounter from './commentsCounter.js';
 import { getCommentsOf, postCommentWith } from './interactionServer.js';
 
 function getCardsFromLocalStorage() {
@@ -50,7 +51,7 @@ export default function displayPopup(cardId) {
   textContentWith(popupBody, '');
 
   getCommentsOf(cardId).then((commentsArr) => {
-    commentHead.textContent = commentsArr.length === undefined ? 'No comments' : `Comments (${commentsArr.length})`;
+    commentHead.textContent = commentsCounter(commentsArr) === undefined ? 'No comments' : `Comments (${commentsCounter(commentsArr)})`;
     commentsArr.forEach((comment) => {
       commentsDisplay.innerHTML
         += `<div>${comment.creation_date} (${comment.username}) : ${comment.comment}</div>`;
