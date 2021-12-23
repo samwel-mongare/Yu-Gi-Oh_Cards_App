@@ -10,7 +10,7 @@ export default function commentsCounter(comments) {
     counter = plusPlus(counter);
     return counter;
   });
-  
+
   if (counter === 0) return undefined;
   return counter;
 }

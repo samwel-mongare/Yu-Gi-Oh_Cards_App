@@ -1,5 +1,5 @@
-import { fakeCards } from "../mockData";
+import { fakeCards } from '../mockData.js';
 
 export default function getCardsFromLocalStorage() {
-    return fakeCards;
+  return fakeCards;
 }
