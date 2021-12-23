@@ -4,7 +4,7 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch --coverage --verbose",
     "build": "webpack",
     "start": "webpack serve --open"
   },
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Mosams/Yu-Gi-Oh_Cards_App#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.5",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
@@ -28,6 +29,7 @@
     "hint": "^6.1.9",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.5",
+    "jsdom": "^19.0.0",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
@@ -40,6 +42,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "babel": "^6.23.0",
     "darkmode-js": "^1.5.7",
     "lodash": "^4.17.21"
   }

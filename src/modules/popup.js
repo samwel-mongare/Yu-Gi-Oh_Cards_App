@@ -1,16 +1,13 @@
+import getCardsFromLocalStorage from '../utl/funcs.js';
 import commentsCounter from './commentsCounter.js';
 import { getCommentsOf, postCommentWith } from './interactionServer.js';
 
-function getCardsFromLocalStorage() {
-  return JSON.parse(localStorage.getItem('card.list')) || [];
-}
-
-function getCard(id) {
+export function getCard(id) {
   const cards = getCardsFromLocalStorage();
   return cards.find((card) => card.id === id);
 }
 
-function displayBlock(element) {
+export function displayBlock(element) {
   element.style.display = 'block';
   return true;
 }
