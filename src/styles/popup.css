@@ -71,8 +71,15 @@
   padding-bottom: 10px;
 }
 
+#commentsDisplay {
+  width: 100%;
+  text-align: left;
+}
+
 #commentsDisplay > * {
   padding-bottom: 3px;
+  padding-top: 3px;
+  border-bottom: 1px solid lightgray;
 }
 
 #close {
