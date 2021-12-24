@@ -1,7 +1,8 @@
 # Yu-Gi-Oh App
 
+> This application displays a number of cards based where a user can click on each of the card to like their favourite card. The app also has a comment section link which when clicked on leads the user to a comment section popup containing more detailed information about the card. In this section, the user is also able to leave a comment based on the experience nad inquires they might have. Both pages have counters to display the number of comments and items on the screen.<br>
+
 > Yu-Gi-Oh is a Japanese manga series about trading card gaming written and illustrated by Kazuki Takahashi. It was serialized in Shueisha's Weekly Shōnen Jump magazine between September 1996 and March 2004. The plot follows the story of a boy named Yugi Mutou, who solves the ancient Millennium Puzzle. Yugi awakens a gambling alter-ego or spirit within his body that solves his conflicts using various games.
-> This application displays a number of cards based where a user can click on each of the card to like their favourite card. The app also has a comment section link which when clicked on leads the user to a comment section popup containing more detailed information about the card. In this section, the user is also able to leave a comment based on the experience nad inquires they might have. Both pages have counters to display the number of comments and items on the screen.
 
 ## Project screenshot
 
