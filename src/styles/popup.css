@@ -13,11 +13,25 @@
 
 .popup h2 {
   width: auto;
+  background-color: #d3d3d375;
+  border: 15px solid #fafad2a8;
+  padding: 5px;
+  border-radius: 21px;
+}
+
+.highlight {
+  background-color: #d3d3d375;
+  border: 15px solid #fafad2a8;
+  padding: 5px;
+  border-radius: 21px;
 }
 
 .popup-content {
+  background-image: url(../images/commentBg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: auto;
-  background-color: #fefefe;
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -61,13 +75,13 @@
   height: 100px;
 }
 
-.desc > * {
+.desc>* {
   padding-bottom: 10px;
   flex: 50%;
   align-self: center;
 }
 
-#commentForm > * {
+#commentForm>* {
   padding-bottom: 10px;
 }
 
@@ -76,21 +90,21 @@
   text-align: left;
 }
 
-#commentsDisplay > * {
+#commentsDisplay>* {
   padding-bottom: 3px;
   padding-top: 3px;
   border-bottom: 1px solid lightgray;
 }
 
 #close {
-  color: #aaa;
+  color: black;  
   font-size: 28px;
   font-weight: bold;
 }
 
 #close:hover,
 #close:focus {
-  color: black;
+  color: red;
   text-decoration: none;
   cursor: pointer;
 }
@@ -98,7 +112,11 @@
 .desc {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  margin-bottom: 5px;
+  background-color: #d3d3d375;
+  border: 15px solid #fafad2a8;
+  padding: 5px;
+  border-radius: 21px;
 }
 
 @keyframes animatetop {

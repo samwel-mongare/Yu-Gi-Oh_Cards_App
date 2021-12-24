@@ -36,6 +36,7 @@ export default function displayPopup(cardId) {
   commentHead.id = 'commentHead';
   commentsDisplay.id = 'commentsDisplay';
   cardDesc.className = 'desc';
+  cardInfo.className = 'highlight'
   cardImg.src = card.card_images[0].image_url;
 
   textContentWith(cardTitle, `${card.name}`);

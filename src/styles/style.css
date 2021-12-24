@@ -87,7 +87,7 @@ main li {
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
   align-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 main li:hover {
