@@ -1,0 +1,269 @@
+body {
+  background-image: url(../images/backy.jpg);
+}
+
+body,
+header,
+footer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav {
+  margin-right: 5%;
+}
+
+.links {
+  margin: 0.5rem;
+  white-space: nowrap;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 20;
+  background-color: whitesmoke;
+  width: 100vw;
+  top: -2px;
+  padding-left: 2%;
+}
+
+footer {
+  position: fixed;
+  z-index: 20;
+  background-color: whitesmoke;
+  width: 100vw;
+  top: 92vh;
+  height: 8vh;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: red;
+}
+
+main {
+  position: relative;
+  top: 95px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6rem;
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 0.5rem;
+  gap: 1.5rem;
+  margin-left: 10%;
+}
+
+h2 {
+  margin-left: 3%;
+  font-weight: 700;
+}
+
+main li {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  height: 20rem;
+  background-image: url('https://vignette.wikia.nocookie.net/yugioh/images/9/95/SlifertheSkyDragon-GBI-AE-Back.png/revision/latest/scale-to-width-down/328?cb=2010072608370');
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  color: white;
+  box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  align-content: center;
+  margin-bottom: 3rem;
+}
+
+main li:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.image_holder {
+  align-self: center;
+  width: 100%;
+  height: 80%;
+}
+
+.card_image {
+  width: 100%;
+  height: 100%;
+}
+
+.card_details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes-section {
+  width: 3rem;
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+.fa-heart {
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+
+.open {
+  animation: popup 0.6s linear;
+  color: red;
+  transform: scale(1.5);
+}
+
+.card_comments {
+  text-decoration: none;
+  border: 3px solid yellow;
+  color: transparent;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+
+.card_comments::before {
+  content: "Comments";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotateY(0);
+  opacity: 0;
+}
+
+.card_comments:hover::before {
+  transform: scale(1) rotateY(360deg);
+  left: 0;
+  opacity: 1;
+}
+
+.card_comments::after {
+  content: "Comments";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotateY(0);
+  opacity: 1;
+}
+
+.card_comments:hover::after {
+  transform: scale(0) rotateY(360deg);
+  left: -100%;
+  opacity: 0;
+}
+
+header,
+footer {
+  background-image: url(../images/backy2.jpg);
+  left: -2px;
+  color: white;
+}
+
+.counter {
+  font-size: 0.8rem;
+  color: yellow;
+  font-weight: 1000;
+  margin-left: 0.2rem;
+}
+
+@keyframes popup {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.double_tap {
+  position: fixed;
+  top: 92vh;
+  width: 100vw;
+  height: 2vh;
+  background-color: black;
+  color: white;
+  z-index: 1000;
+}
+
+.marquee {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  text-indent: 0;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee span:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+@media only screen and (max-width: 1200px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
