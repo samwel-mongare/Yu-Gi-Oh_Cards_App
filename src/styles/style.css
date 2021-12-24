@@ -217,11 +217,12 @@ footer {
 
 .double_tap {
   position: fixed;
-  top: 7%;
+  top: 92vh;
   width: 100vw;
   height: 2vh;
   background-color: black;
   color: white;
+  z-index: 2000;
 }
 
 .marquee {
@@ -245,4 +246,25 @@ footer {
 @keyframes marquee {
   0% { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
+}
+
+@media only screen and (max-width: 1200px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
