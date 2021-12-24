@@ -72,7 +72,6 @@ main ul {
 }
 
 h2 {
-  width: 7rem;
   margin-left: 3%;
   font-weight: 700;
 }
@@ -222,7 +221,7 @@ footer {
   height: 2vh;
   background-color: black;
   color: white;
-  z-index: 2000;
+  z-index: 1000;
 }
 
 .marquee {
