@@ -75,13 +75,13 @@
   height: 100px;
 }
 
-.desc>* {
+.desc > * {
   padding-bottom: 10px;
   flex: 50%;
   align-self: center;
 }
 
-#commentForm>* {
+#commentForm > * {
   padding-bottom: 10px;
 }
 
@@ -90,14 +90,14 @@
   text-align: left;
 }
 
-#commentsDisplay>* {
+#commentsDisplay > * {
   padding-bottom: 3px;
   padding-top: 3px;
   border-bottom: 1px solid lightgray;
 }
 
 #close {
-  color: black;  
+  color: black;
   font-size: 28px;
   font-weight: bold;
 }
