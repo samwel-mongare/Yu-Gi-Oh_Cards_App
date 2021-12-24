@@ -217,11 +217,12 @@ footer {
 
 .double_tap {
   position: fixed;
-  top: 7%;
+  top: 92vh;
   width: 100vw;
   height: 2vh;
   background-color: black;
   color: white;
+  z-index: 2000;
 }
 
 .marquee {
